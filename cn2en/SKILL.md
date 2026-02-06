@@ -15,6 +15,31 @@ description: Translate Chinese Markdown (.md) files into English while preservin
 4) Write the sibling output file in the same directory.
 5) Append new terms to `references/glossary.jsonl` when confident.
 
+## Script Usage
+
+### Extract blocks
+
+```bash
+python cn2en/scripts/extract_cn_blocks.py --input path/to/foo.md
+```
+
+This creates:
+
+- `path/to/foo.en.md` with placeholders
+- `path/to/foo.en.blocks.json` with extracted blocks
+
+### Insert translations
+
+```bash
+python cn2en/scripts/insert_en_blocks.py --input path/to/foo.en.md --translations path/to/translated.json
+```
+
+Translations file formats:
+
+- JSON list: `[{\"index\": 1, \"text\": \"...\"}]`
+- JSON dict: `{ \"[[CN2EN_BLOCK_0001]]\": \"...\" }`
+- JSONL: one object per line with `index` or `placeholder` and `text`
+
 ## Resources
 
 - `references/output-conventions.md`: naming rules and file placement.

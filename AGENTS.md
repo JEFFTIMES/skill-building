@@ -51,5 +51,6 @@ Follow these rules whenever you open this folder:
 
 8. Save development logs every 10 user interactions during active work on a skill; store logs in a subfolder log/ inside that skill’s folder.
 
-9. Periodically, every 30min, update README.md at the root working directory.
+9. Also save a log entry for any design or implementation change; store logs in a subfolder log/ inside that skill’s folder.
 
+10. Periodically, every 30min, update README.md at the root working directory.
