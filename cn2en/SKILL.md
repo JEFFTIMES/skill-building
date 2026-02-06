@@ -20,6 +20,7 @@ description: Translate Chinese Markdown (.md) files into English while preservin
 - `references/output-conventions.md`: naming rules and file placement.
 - `references/ignore-rules.md`: what to preserve and never translate.
 - `references/glossary.jsonl`: append-only term base.
+- `scripts/append_glossary.py`: helper to append stable terms to the glossary.
 
 ## Term Base Format
 
