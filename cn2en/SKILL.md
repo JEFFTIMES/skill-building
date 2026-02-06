@@ -22,6 +22,8 @@ description: Translate Chinese Markdown (.md) files into English while preservin
 - `references/glossary.jsonl`: append-only term base.
 - `references/terms.md`: guidance for adding stable glossary entries.
 - `scripts/append_glossary.py`: helper to append stable terms to the glossary.
+- `scripts/extract_cn_blocks.py`: create a skeleton .en.md file and extract placeholders into a blocks file.
+- `scripts/insert_en_blocks.py`: insert translated blocks into the skeleton .en.md file.
 
 ## Term Base Format
 
