@@ -1,9 +1,9 @@
 ---
-name: cn2en
-description: Translate Chinese Markdown (.md) files into English while preserving Markdown structure. Use when asked to translate Chinese Markdown to English, create a sibling .en.md file, keep YAML front matter untouched, and maintain a term glossary/translation memory.
+name: mdcn2en
+description: Translate Chinese Markdown (.md) files into English while preserving Markdown structure. Use only for Markdown files and when asked to translate Chinese Markdown to English, create a sibling .en.md file, keep YAML front matter untouched, and maintain a term glossary/translation memory.
 ---
 
-# cn2en
+# mdcn2en
 
 ## Workflow
 
@@ -21,7 +21,7 @@ description: Translate Chinese Markdown (.md) files into English while preservin
 ### Extract blocks
 
 ```bash
-python cn2en/scripts/extract_cn_blocks.py --input path/to/foo.md
+python mdcn2en/scripts/extract_cn_blocks.py --input path/to/foo.md
 ```
 
 This creates:
@@ -32,31 +32,31 @@ This creates:
 ### List blocks for translation
 
 ```bash
-python cn2en/scripts/extract_blocks_from_json.py --input path/to/foo.en.blocks.json
+python mdcn2en/scripts/extract_blocks_from_json.py --input path/to/foo.en.blocks.json
 ```
 
 ### Insert translations
 
 ```bash
-python cn2en/scripts/insert_en_blocks.py --input path/to/foo.en.md --translations path/to/translated.json
+python mdcn2en/scripts/insert_en_blocks.py --input path/to/foo.en.md --translations path/to/translated.json
 ```
 
 Translations file formats:
 
-- JSON list: `[{\"index\": 1, \"text\": \"...\"}]`
-- JSON dict: `{ \"[[CN2EN_BLOCK_0001]]\": \"...\" }`
+- JSON list: `[{"index": 1, "text": "..."}]`
+- JSON dict: `{ "[[CN2EN_BLOCK_0001]]": "..." }`
 - JSONL: one object per line with `index` or `placeholder` and `text`
 
 ### Append glossary (batch)
 
 ```bash
-python cn2en/scripts/append_glossary.py --input path/to/glossary.json --source \"path.md\" --context \"short snippet\"
+python mdcn2en/scripts/append_glossary.py --input path/to/glossary.json --source "path.md" --context "short snippet"
 ```
 
 Input formats:
 
-- JSON dict: `{ \"术语\": \"Term\", \"科研\": \"research\" }` (requires `--source` and `--context`)
-- JSON list: `[{\"zh\": \"术语\", \"en\": \"Term\", \"source\": \"...\", \"context\": \"...\"}, ...]`
+- JSON dict: `{ "术语": "Term", "科研": "research" }` (requires `--source` and `--context`)
+- JSON list: `[{"zh": "术语", "en": "Term", "source": "...", "context": "..."}, ...]`
 
 ## Resources
 

@@ -19,8 +19,8 @@ def test_extract_then_insert(tmp_path: Path):
     )
 
     repo_root = Path(__file__).resolve().parents[2]
-    extract = repo_root / "cn2en" / "scripts" / "extract_cn_blocks.py"
-    insert = repo_root / "cn2en" / "scripts" / "insert_en_blocks.py"
+    extract = repo_root / "mdcn2en" / "scripts" / "extract_cn_blocks.py"
+    insert = repo_root / "mdcn2en" / "scripts" / "insert_en_blocks.py"
 
     subprocess.check_call(["python3", str(extract), "--input", str(input_md)])
 

@@ -5,8 +5,8 @@ from pathlib import Path
 
 def test_append_glossary_appends_and_restores(tmp_path: Path):
     repo_root = Path(__file__).resolve().parents[2]
-    script = repo_root / "cn2en" / "scripts" / "append_glossary.py"
-    glossary = repo_root / "cn2en" / "references" / "glossary.jsonl"
+    script = repo_root / "mdcn2en" / "scripts" / "append_glossary.py"
+    glossary = repo_root / "mdcn2en" / "references" / "glossary.jsonl"
 
     payload = {"term_zh": "Term", "科研": "research"}
     payload_path = tmp_path / "glossary.json"
@@ -21,7 +21,7 @@ def test_append_glossary_appends_and_restores(tmp_path: Path):
                 "--input",
                 str(payload_path),
                 "--source",
-                "cn2en/tests/input.zh.md",
+                "mdcn2en/tests/input.zh.md",
                 "--context",
                 "short snippet",
             ]
@@ -32,6 +32,6 @@ def test_append_glossary_appends_and_restores(tmp_path: Path):
         last = json.loads(lines[-1])
         assert last["zh"] in payload
         assert last["en"] == payload[last["zh"]]
-        assert last["source"] == "cn2en/tests/input.zh.md"
+        assert last["source"] == "mdcn2en/tests/input.zh.md"
     finally:
         glossary.write_text(original, encoding="utf-8")

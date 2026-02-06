@@ -5,9 +5,9 @@ This is the factory that creates new skills for OpenAI Codex, Claude Code and Op
 
 # In progress
 
-## cn2en
+## mdcn2en
 
-[translate Chinese markdown into English](/cn2en/SKILL.md)
+[translate Chinese markdown into English](/mdcn2en/SKILL.md)
 
 
 # Released
